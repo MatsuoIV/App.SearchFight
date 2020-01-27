@@ -25,7 +25,7 @@ namespace App.SearchFight.Core.Impl
             return new List<ISearchProvider>
             {
                 new GoogleSearchProvider(),
-                //new BingSearchProvider()
+                new BingSearchProvider()
             };
         }
 

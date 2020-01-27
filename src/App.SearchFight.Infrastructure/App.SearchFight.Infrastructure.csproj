@@ -42,14 +42,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config\BingConfigParams.cs" />
     <Compile Include="Config\ConfigParams.cs" />
     <Compile Include="Config\GoogleConfigParams.cs" />
     <Compile Include="Impl\BingSearchProvider.cs" />
     <Compile Include="Impl\GoogleSearchProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ISearchProvider.cs" />
-    <Compile Include="Schemas\GoogleResultSchema.cs" />
-    <Compile Include="Schemas\SearchInformationSchema.cs" />
+    <Compile Include="Schemas\Bing\BingResultSchema.cs" />
+    <Compile Include="Schemas\Google\GoogleResultSchema.cs" />
+    <Compile Include="Schemas\Google\SearchInformationSchema.cs" />
+    <Compile Include="Schemas\Bing\WebPagesSchema.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\App.SearchFight.Utils\App.SearchFight.Utils.csproj">

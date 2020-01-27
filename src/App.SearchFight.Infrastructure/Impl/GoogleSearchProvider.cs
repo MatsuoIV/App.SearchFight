@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using App.SearchFight.Infrastructure.Providers;
 using App.SearchFight.Infrastructure.Config;
-using App.SearchFight.Infrastructure.Schemas;
+using App.SearchFight.Infrastructure.Schemas.Google;
 using App.SearchFight.Utils.Helpers;
 
 namespace App.SearchFight.Infrastructure.Impl
@@ -26,9 +26,6 @@ namespace App.SearchFight.Infrastructure.Impl
             {
                 throw new Exception("Parametro invalido");
             }
-
-            string ApiKey = GoogleConfigParams.ApiKey;
-            string SearchId = GoogleConfigParams.SearchId;
 
             string requestUrl = GoogleConfigParams.BaseUrl.Replace("{ApiKey}", GoogleConfigParams.ApiKey)
                 .Replace("{SearchId}", GoogleConfigParams.SearchId)

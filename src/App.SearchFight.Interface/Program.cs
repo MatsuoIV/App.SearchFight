@@ -11,15 +11,14 @@ namespace App.SearchFight.Interface
     {
         static void Main(string[] args)
         {
-            string[] args2 = { "java", ".NET" };
-            if (args2.Length == 0)
+            if (args.Length == 0)
             {
                 Console.WriteLine("No query were specified. Please execute again with the required search terms.");
                 Console.ReadKey();
                 return;
             }
             Console.WriteLine("SearchFight results...");
-            SearchCore.GetSearchTotalResults(args2.ToList()).GetAwaiter().GetResult();
+            SearchCore.GetSearchTotalResults(args.ToList()).GetAwaiter().GetResult();
             Console.ReadKey();
         }
     }
