@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using App.SearchFight.Core.Schemas;
 using App.SearchFight.Core.Services;
 
@@ -13,7 +12,7 @@ namespace App.SearchFight.Core.Impl
         public IList<string> GetSearchResultsReport(IList<SearchResultSchema> searchResults)
         {
             if (searchResults == null || searchResults.Count == 0)
-                throw new Exception("Invalid parameter");
+                throw new Exception("Reporting Service: Invalid results");
 
             return searchResults.GroupBy(item => item.Query)
                 .Select(group => $"{group.Key}: {string.Join(" ", group.Select(item => $"{item.Engine}: {item.Result}"))}")
@@ -24,7 +23,7 @@ namespace App.SearchFight.Core.Impl
         {
             if (engineWinners == null || engineWinners.Count() == 0)
             {
-                throw new Exception("Invalid params.");
+                throw new Exception("Reporting Service: Invalid results");
             }
 
             List<string> results = new List<string>();
@@ -43,7 +42,7 @@ namespace App.SearchFight.Core.Impl
         public string GetAbsoluteWinnerReport(EngineWinnerSchema absoluteWinner)
         {
             if (absoluteWinner == null)
-                throw new Exception("Invalid parameter");
+                throw new Exception("Reporting Service: Invalid results");
 
             StringBuilder grandWinnerBuilder = new StringBuilder();
             grandWinnerBuilder.Append("Total winner: ");

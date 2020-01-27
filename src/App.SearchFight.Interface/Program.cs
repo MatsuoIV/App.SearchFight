@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using App.SearchFight.Core;
 
 namespace App.SearchFight.Interface
@@ -13,7 +10,7 @@ namespace App.SearchFight.Interface
         {
             if (args.Length == 0)
             {
-                Console.WriteLine("No query were specified. Please execute again with the required search terms.");
+                Console.WriteLine("No query was specified. Please execute again with the required search terms.");
                 return;
             }
             Console.WriteLine("SearchFight results...");

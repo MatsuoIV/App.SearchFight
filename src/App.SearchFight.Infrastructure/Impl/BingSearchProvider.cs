@@ -1,8 +1,5 @@
 using System;
 using System.Net.Http;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using App.SearchFight.Infrastructure.Providers;
 using App.SearchFight.Infrastructure.Config;
@@ -26,7 +23,7 @@ namespace App.SearchFight.Infrastructure.Impl
         {
             if(string.IsNullOrEmpty(query))
             {
-                throw new Exception("Parametros inválidos");
+                throw new Exception("Bing Search: Invalid parameters");
             }
 
             string configurationId = BingConfigParams.ConfigurationId;
@@ -40,8 +37,8 @@ namespace App.SearchFight.Infrastructure.Impl
             var result = await this._client.GetAsync(requestUrl);
             if (!result.IsSuccessStatusCode)
             {
-            throw new NotImplementedException();
-        }
+                throw new Exception("Bing Search: Can't perform the search");
+            }
 
             var results = JsonHelper.Deserialize<BingResultSchema>(await result.Content.ReadAsStringAsync());
             return results.WebPages.TotalEstimatedMatches;

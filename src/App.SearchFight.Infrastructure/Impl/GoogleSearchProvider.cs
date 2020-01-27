@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Net.Http;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using App.SearchFight.Infrastructure.Providers;
 using App.SearchFight.Infrastructure.Config;
@@ -26,7 +23,7 @@ namespace App.SearchFight.Infrastructure.Impl
         {
             if(string.IsNullOrEmpty(query))
             {
-                throw new Exception("Parametro invalido");
+                throw new Exception("Google Search: Invalid parameters");
             }
 
             string requestUrl = GoogleConfigParams.BaseUrl.Replace("{ApiKey}", GoogleConfigParams.ApiKey)
@@ -36,7 +33,7 @@ namespace App.SearchFight.Infrastructure.Impl
             var result = await this._client.GetAsync(requestUrl);
             if(!result.IsSuccessStatusCode)
             {
-                throw new Exception("No se pudo procesar la petición.");
+                throw new Exception("Google Search: Can't perform the search");
             }
 
             var results = JsonHelper.Deserialize<GoogleResultSchema>(await result.Content.ReadAsStringAsync());

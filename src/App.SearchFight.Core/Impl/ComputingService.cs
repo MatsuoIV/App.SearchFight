@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using App.SearchFight.Core.Schemas;
 using App.SearchFight.Core.Services;
 using App.SearchFight.Utils.Functions;
@@ -15,7 +13,7 @@ namespace App.SearchFight.Core.Impl
         {
             if(searchResults == null || searchResults.Count() == 0)
             {
-                throw new Exception("No hay resultados");
+                throw new Exception("Computing Service: No results were passed");
             }
 
             SearchResultSchema absoluteWinner = searchResults.GetMax(item => item.Result);
@@ -26,7 +24,7 @@ namespace App.SearchFight.Core.Impl
         {
             if (searchResults == null || searchResults.Count() == 0)
             {
-                throw new Exception("No hay resultados");
+                throw new Exception("Computing Service: No results were passed");
             }
 
             IEnumerable<EngineWinnerSchema> searchEngineWinners = searchResults.GroupBy(data => data.Engine,
