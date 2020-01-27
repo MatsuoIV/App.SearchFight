@@ -2,9 +2,6 @@
 {
     public class ConfigConstants
     {
-        ConfigConstants()
-        {
-        }
 
         #region Engine Data
         public static readonly string Google = "Google";

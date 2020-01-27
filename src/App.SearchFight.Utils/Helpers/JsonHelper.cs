@@ -6,7 +6,7 @@ namespace App.SearchFight.Utils.Helpers
     {
         public static T Deserialize<T>(string json)
         {
-            var serializer = new JavaScriptSerializer();
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
             return serializer.Deserialize<T>(json);
         }
     }

@@ -26,21 +26,18 @@ namespace App.SearchFight.Infrastructure.Impl
                 throw new Exception("Bing Search: Invalid parameters");
             }
 
-            string configurationId = BingConfigParams.ConfigurationId;
-            string suscriptionKey = BingConfigParams.SuscriptionKey;
-
             string requestUrl = BingConfigParams.BaseUrl.Replace("{ConfigurationId}", BingConfigParams.ConfigurationId)
                 .Replace("{Query}", query);
 
-            this._client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", BingConfigParams.SuscriptionKey);
+            _client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", BingConfigParams.SuscriptionKey);
 
-            var result = await this._client.GetAsync(requestUrl);
+            HttpResponseMessage result = await _client.GetAsync(requestUrl);
             if (!result.IsSuccessStatusCode)
             {
                 throw new Exception("Bing Search: Can't perform the search");
             }
 
-            var results = JsonHelper.Deserialize<BingResultSchema>(await result.Content.ReadAsStringAsync());
+            BingResultSchema results = JsonHelper.Deserialize<BingResultSchema>(await result.Content.ReadAsStringAsync());
             return results.WebPages.TotalEstimatedMatches;
         }
     }

@@ -46,7 +46,7 @@ namespace App.SearchFight.Core.Impl
 
             StringBuilder grandWinnerBuilder = new StringBuilder();
             grandWinnerBuilder.Append("Total winner: ");
-            grandWinnerBuilder.Append(absoluteWinner.Engine);
+            grandWinnerBuilder.Append(absoluteWinner.Term);
             return grandWinnerBuilder.ToString();
         }
     }

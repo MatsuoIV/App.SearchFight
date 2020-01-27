@@ -10,7 +10,7 @@ namespace App.SearchFight.Utils.Functions
             if (source == null)
                 throw new ArgumentException("The specified parameter cannot be null.", nameof(source));
 
-            using (var enumerator = source.GetEnumerator())
+            using (IEnumerator<T> enumerator = source.GetEnumerator())
             {
                 if (!enumerator.MoveNext())
                     throw new ArgumentException("Cannot get next enumerator from specified parameter.", nameof(source));
@@ -20,7 +20,7 @@ namespace App.SearchFight.Utils.Functions
 
                 while (enumerator.MoveNext())
                 {
-                    var possible = func(enumerator.Current);
+                    long possible = func(enumerator.Current);
 
                     if (currentMax < possible)
                     {

@@ -30,13 +30,13 @@ namespace App.SearchFight.Infrastructure.Impl
                 .Replace("{SearchId}", GoogleConfigParams.SearchId)
                 .Replace("{Query}", query);
 
-            var result = await this._client.GetAsync(requestUrl);
+            HttpResponseMessage result = await _client.GetAsync(requestUrl);
             if(!result.IsSuccessStatusCode)
             {
                 throw new Exception("Google Search: Can't perform the search");
             }
 
-            var results = JsonHelper.Deserialize<GoogleResultSchema>(await result.Content.ReadAsStringAsync());
+            GoogleResultSchema results = JsonHelper.Deserialize<GoogleResultSchema>(await result.Content.ReadAsStringAsync());
             return long.Parse(results.SearchInformation.TotalResults);
         }
     }
