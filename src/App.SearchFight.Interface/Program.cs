@@ -14,12 +14,11 @@ namespace App.SearchFight.Interface
             if (args.Length == 0)
             {
                 Console.WriteLine("No query were specified. Please execute again with the required search terms.");
-                Console.ReadKey();
                 return;
             }
             Console.WriteLine("SearchFight results...");
             SearchCore.GetSearchTotalResults(args.ToList()).GetAwaiter().GetResult();
-            Console.ReadKey();
+            SearchCore.Results.ForEach(result => Console.WriteLine(result));
         }
     }
 }

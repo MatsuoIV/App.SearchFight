@@ -39,9 +39,10 @@ namespace App.SearchFight.Core.Impl
                 {
                     searchResults.Add(new SearchResultSchema
                     {
+                        Engine = searchProvider.Name,
                         Query = term,
                         Result = await searchProvider.GetSearchResults(term)
-                    });
+                    }); ;
                 }
             }
             

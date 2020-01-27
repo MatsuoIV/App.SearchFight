@@ -12,6 +12,11 @@ namespace App.SearchFight.Utils.Constants
         {
         }
 
+        #region Engine Data
+        public static readonly string Google = "Google";
+        public static readonly string Bing = "Bing";
+        #endregion
+
         #region Config Keys
 
         public static readonly string GoogleBaseUrl = "GoogleBaseURL";

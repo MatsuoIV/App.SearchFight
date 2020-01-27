@@ -8,11 +8,13 @@ using App.SearchFight.Infrastructure.Providers;
 using App.SearchFight.Infrastructure.Config;
 using App.SearchFight.Infrastructure.Schemas.Google;
 using App.SearchFight.Utils.Helpers;
+using App.SearchFight.Utils.Constants;
 
 namespace App.SearchFight.Infrastructure.Impl
 {
     public class GoogleSearchProvider : ISearchProvider
     {
+        public string Name => ConfigConstants.Google;
         private HttpClient _client { get; }
 
         public GoogleSearchProvider()

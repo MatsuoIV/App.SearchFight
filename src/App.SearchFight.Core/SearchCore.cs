@@ -14,27 +14,28 @@ namespace App.SearchFight.Core
         public static List<string> Results { get; set; }
 
         static ISearchService SearchService;
+        static IComputingService ComputingService;
+        static IReportingService ReportingService;
 
         static SearchCore()
         {
             Results = new List<string>();
             SearchService = new SearchService();
+            ComputingService = new ComputingService();
+            ReportingService = new ReportingService();
         }
 
         public static async Task GetSearchTotalResults(IList<string> terms)
         {
             IList<SearchResultSchema> searchResults = await SearchService.GetSearchResultsByQuery(terms);
-            if (searchResults == null || searchResults.Count() == 0)
-            {
-                throw new Exception("No se encontraron resultados");
-            }
+            IEnumerable<EngineWinnerSchema> engineWinners = ComputingService.GetWinnerBySearchTerm(searchResults);
+            EngineWinnerSchema absoluteWinner = ComputingService.GetAbsoluteWinner(searchResults);
 
-            foreach(SearchResultSchema searchResult in searchResults)
-            {
-                Console.WriteLine("==========================");
-                Console.WriteLine(searchResult.Query);
-                Console.WriteLine(searchResult.Result);
-            }
+            #region Reports
+            Results.AddRange(ReportingService.GetSearchResultsReport(searchResults));
+            Results.AddRange(ReportingService.GetWinnersByEngineReport(engineWinners));
+            Results.Add(ReportingService.GetAbsoluteWinnerReport(absoluteWinner));
+            #endregion
         }
     }
 }

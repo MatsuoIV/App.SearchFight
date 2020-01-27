@@ -8,11 +8,13 @@ using App.SearchFight.Infrastructure.Providers;
 using App.SearchFight.Infrastructure.Config;
 using App.SearchFight.Infrastructure.Schemas.Bing;
 using App.SearchFight.Utils.Helpers;
+using App.SearchFight.Utils.Constants;
 
 namespace App.SearchFight.Infrastructure.Impl
 {
     public class BingSearchProvider : ISearchProvider
     {
+        public string Name => ConfigConstants.Bing;
         private HttpClient _client { get; }
 
         public BingSearchProvider()

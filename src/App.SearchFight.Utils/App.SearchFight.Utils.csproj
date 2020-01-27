@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants\ConfigConstants.cs" />
+    <Compile Include="Functions\UtilFunctions.cs" />
     <Compile Include="Helpers\JsonHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
