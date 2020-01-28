@@ -44,16 +44,19 @@ namespace App.SearchFight.Tests.Core
 
         #region GetWinnersByEngineReport
 
+        [Test]
         public void GetWinnersByEngineReport_Null_Results_Exception()
         {
             Assert.Throws<Exception>(() => _reportingService.GetWinnersByEngineReport(null));
         }
 
+        [Test]
         public void GetWinnersByEngineReport_Empty_Results_Exception()
         {
             Assert.Throws<Exception>(() => _reportingService.GetWinnersByEngineReport(new List<EngineWinnerSchema>()));
         }
 
+        [Test]
         public void GetWinnersByEngineReport_Success()
         {
             IList<string> report = _reportingService.GetWinnersByEngineReport(GetTestEngineWinners());
@@ -66,11 +69,13 @@ namespace App.SearchFight.Tests.Core
 
         #region GetAbsouluteWinnerReport
 
+        [Test]
         public void GetAbsouluteWinnerReport_Null_Results_Exception()
         {
             Assert.Throws<Exception>(() => _reportingService.GetAbsoluteWinnerReport(null));
         }
 
+        [Test]
         public void GetAbsoluteWinnerReport_Success()
         {
             string absoluteWinner = _reportingService.GetAbsoluteWinnerReport(GetTestAbsoluteWinner());

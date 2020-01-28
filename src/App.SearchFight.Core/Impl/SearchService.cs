@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Linq;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using App.SearchFight.Infrastructure.Providers;
 using App.SearchFight.Infrastructure.Impl;
@@ -27,11 +29,16 @@ namespace App.SearchFight.Core.Impl
 
         public async Task<IList<SearchResultSchema>> GetSearchResultsByQuery(IList<string> query)
         {
+            if (query == null || query.Count() == 0)
+            {
+                throw new Exception("Search Service: Empty query params");
+            }
+
             IList<SearchResultSchema> searchResults = new List<SearchResultSchema>();
 
-            foreach(ISearchProvider searchProvider in _searchProviders)
+            foreach (ISearchProvider searchProvider in _searchProviders)
             {
-                foreach(string term in query)
+                foreach (string term in query)
                 {
                     searchResults.Add(new SearchResultSchema
                     {
