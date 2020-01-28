@@ -23,7 +23,7 @@ This app works using two search engines (Google and Bing). You need the followin
 * Bing Suscription Key
 * Bing Configuration Id
 
-Replace these params in the App.Config file located in the interface layer.
+Replace these params in the App.Config file located in both interface and test layers.
 
 ```
     <add key="GoogleAPIKey" value="GOOGLE_API_KEY"/>
