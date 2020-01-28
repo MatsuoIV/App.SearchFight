@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.SearchFight.Infrastruct
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.SearchFight.Utils", "src\App.SearchFight.Utils\App.SearchFight.Utils.csproj", "{8FB39576-364E-4F0D-8065-EB92D8450394}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.SearchFight.Tests", "src\App.SearchFight.Tests\App.SearchFight.Tests.csproj", "{C0EB3B40-7573-4675-8986-0D4473C923AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{8FB39576-364E-4F0D-8065-EB92D8450394}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FB39576-364E-4F0D-8065-EB92D8450394}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FB39576-364E-4F0D-8065-EB92D8450394}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0EB3B40-7573-4675-8986-0D4473C923AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0EB3B40-7573-4675-8986-0D4473C923AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0EB3B40-7573-4675-8986-0D4473C923AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0EB3B40-7573-4675-8986-0D4473C923AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
